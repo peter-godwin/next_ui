@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
     const pathname = usePathname();
@@ -16,10 +17,17 @@ export default function Header() {
     return (
         <header className="w-full bg-white h-[80px] flex items-center justify-between px-4 md:px-12 shadow-md">
             <div className="flex items-center">
-                <img
+                {/* <img
                     src="/assets/Group 247.svg"
                     alt="Logo"
                     className="w-[100px] h-auto"
+                /> */}
+                <Image
+                    src="/assets/Group 247.svg"
+                    alt="Logo"
+                    className="w-[100px] h-auto"
+                    width={119} // Specify width for next/image
+                    height={46} // Specify height for next/image (or define a fixed height if necessary)
                 />
             </div>
 
@@ -36,11 +44,35 @@ export default function Header() {
                 ))}
             </nav>
 
-            <div className="flex items-center gap-3 md:gap-4">
+            {/* <div className="flex items-center gap-3 md:gap-4">
                 <img src="/assets/search-normal.svg" alt="Search" className="w-[20px] md:w-[24px] h-auto" />
                 <img src="/assets/user.svg" alt="User" className="w-[20px] md:w-[24px] h-auto" />
-                <img src="/assets/cart-btn.svg" alt="Cart" className="w-[24px] md:w-[28px] h-auto" />
+                <img src="/assets/cart-btn.svg" alt="Cart" className="w-[24px] md:w-[28px] h-auto" /> */}
+            {/* </div> */}
+            <div className="flex items-center gap-3 md:gap-4">
+                <Image
+                    src="/assets/search-normal.svg"
+                    alt="Search"
+                    className="w-[20px] md:w-[24px] h-auto"
+                    width={24} // Specify width
+                    height={24} // Specify height
+                />
+                <Image
+                    src="/assets/user.svg"
+                    alt="User"
+                    className="w-[20px] md:w-[24px] h-auto"
+                    width={24}
+                    height={24}
+                />
+                <Image
+                    src="/assets/cart-btn.svg"
+                    alt="Cart"
+                    className="w-[24px] md:w-[28px] h-auto"
+                    width={24}
+                    height={24}
+                />
             </div>
+
         </header>
     );
 }

@@ -1,3 +1,6 @@
+import React from "react";
+import Image from "next/image";
+
 export default function Banner() {
     return (
         <div className="bg-black w-full h-[45.48px] flex items-center">
@@ -6,10 +9,18 @@ export default function Banner() {
                     Promo! Promo!! Promo!!!
                 </span>
 
-                <img
+                {/* <img
                     src="/assets/CTA Button.png"
                     alt="Promo Arrow"
                     className="w-[40px] h-[40px] pl-4 sm:pl-10 md:pl-10 lg:pl-10 xl:pl-0"
+                /> */}
+
+                <Image
+                    src="/assets/CTA Button.png"
+                    alt="Promo Arrow"
+                    className="w-[40px] h-[40px] pl-4 sm:pl-10 md:pl-10 lg:pl-10 xl:pl-0"
+                    width={40} // Width for image optimization
+                    height={40} // Height for image optimization
                 />
             </div>
         </div>
