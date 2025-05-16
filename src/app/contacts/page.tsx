@@ -11,8 +11,9 @@ export default function ContactPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 font-[Poppins]">Get in Touch</h1>
           <p className="mt-4 text-gray-600 font-[Poppins]">
-            We'd love to hear from you! Fill out the form below or reach out via the contact details.
+            We&apos;d love to hear from you! Fill out the form below or reach out via the contact details.
           </p>
+
         </div>
 
         {/* Contact Form and Info */}
