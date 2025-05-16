@@ -18,7 +18,6 @@ export default function BottomFeatureSession() {
           paddingRight: '24px',
         }}
       >
-        {/* Left Text */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-start">
           <p
             className="text-white text-center md:text-left px-2 md:px-6"
@@ -33,8 +32,6 @@ export default function BottomFeatureSession() {
             Stay up to date about our <br className="hidden md:block" /> latest offers
           </p>
         </div>
-
-        {/* Input and Button */}
         <div className="flex flex-col gap-4 w-full max-w-[349px] ">
           <InputField
             type="email"
@@ -45,18 +42,6 @@ export default function BottomFeatureSession() {
             required
             className="bg-white text-black rounded-full h-12 px-4 flex items-center gap-2"
           />
-          {/* <div
-            className="flex items-center justify-center bg-white text-black font-semibold cursor-pointer hover:bg-gray-100 transition w-full rounded-full text-center"
-            style={{
-              height: '48px',
-              borderRadius: '62px',
-              padding: '12px 24px',
-              gap: '12px',
-              background: '#FFFFFF',
-            }}
-          >
-            Subscribe to our newsletter
-          </div> */}
           <button
             type="submit"
             className="w-full h-12 rounded-full bg-white text-black font-semibold transition duration-300 hover:bg-gray-200"

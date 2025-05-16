@@ -29,7 +29,6 @@ export default function ProductsPage() {
         <div>
             <div className="flex justify-between">
 
-                {/* <div className="max-w-xs p-4 pl-20"> */}
                 <div className="p-4 pl-[96px]">
                     <h3 className="text-lg font-semibold mb-4 text-black">Categories</h3>
                     <div className="space-y-3">
@@ -67,8 +66,6 @@ export default function ProductsPage() {
                                 className="dual-slider"
                             />
                         </div>
-
-
                         <div className="flex justify-between mt-2 text-sm text-black">
                             <div className="flex flex-col items-left">
                                 <p
@@ -313,6 +310,5 @@ export default function ProductsPage() {
             </div>
             <Footer />
         </div>
-
     );
 }

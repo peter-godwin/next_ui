@@ -1,5 +1,3 @@
-
-
 'use client';
 
 import Image from 'next/image';
@@ -12,11 +10,10 @@ export default function Head() {
                     src="/assets/Group 247.svg"
                     alt="Logo"
                     className="w-[100px] h-auto"
-                    width={100} // Specify width
-                    height={40} // Specify height
+                    width={100} 
+                    height={40} 
                 />
             </div>
-
             <div className="flex-1 flex justify-center">
                 <div className="relative w-[400px] h-[52px]">
                     <div className="absolute top-1/2 left-3 transform -translate-y-1/2 pointer-events-none">
@@ -24,8 +21,8 @@ export default function Head() {
                             src="/assets/search-normal.svg"
                             alt="Search"
                             className="w-5 h-5"
-                            width={20} // Specify width
-                            height={20} // Specify height
+                            width={20} 
+                            height={20} 
                         />
                     </div>
                     <input
@@ -35,21 +32,20 @@ export default function Head() {
                     />
                 </div>
             </div>
-
             <div className="flex items-center space-x-4">
                 <Image
                     src="/assets/user.svg"
                     alt="User"
                     className="w-[20px] md:w-[24px] h-auto"
-                    width={20} // Specify width
-                    height={20} // Specify height
+                    width={20} 
+                    height={20}
                 />
                 <Image
                     src="/assets/cart-btn.svg"
                     alt="Cart"
                     className="w-[24px] md:w-[28px] h-auto"
-                    width={24} // Specify width
-                    height={24} // Specify height
+                    width={24} 
+                    height={24}
                 />
             </div>
         </header>

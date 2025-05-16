@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link'; 
+import Link from 'next/link';
 
 export default function Category() {
     const categories = [
@@ -23,14 +23,10 @@ export default function Category() {
                         ipsum, loreipsumm <br />
                         mmmmm
                     </p>
-                    {/* Link wrapping the button */}
                     <Link href="/recommendation">
-                        {/* <button className="mt-2 px-6 py-2 bg-black text-white rounded-[5px] text-sm hover:bg-gray-800 transition">
-                            See more
-                        </button> */}
                         <button className="bg-black text-white px-6 py-3 rounded-md text-sm md:text-base">
-                                 See more
-                            </button>
+                            See more
+                        </button>
                     </Link>
                 </div>
 

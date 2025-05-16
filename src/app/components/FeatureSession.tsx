@@ -16,7 +16,6 @@ export default function FeatureSection() {
                         </p>
                     </div>
                 </div>
-
                 <div className="hidden md:block w-px h-[50px] bg-[#E5E7EB] shadow-[0px_3px_8px_rgba(0,0,0,0.24)]" />
 
                 <div className="flex items-middle gap-3 text-center md:text-left">

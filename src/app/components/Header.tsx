@@ -1,5 +1,3 @@
-
-
 'use client';
 
 import { useState } from "react";
@@ -21,7 +19,6 @@ export default function Header() {
 
     return (
         <header className="w-full bg-white h-[80px] flex items-center justify-between px-4 md:px-12 relative z-20 border">
-            {/* Logo */}
             <div className="flex items-center">
                 <Image
                     src="/assets/Group 247.svg"
@@ -31,8 +28,6 @@ export default function Header() {
                     className="w-[100px] h-auto"
                 />
             </div>
-
-            {/* Nav Links */}
             <nav className={`hidden md:flex gap-6 text-sm font-medium text-gray-800 ${searchActive ? 'hidden' : ''}`}>
                 {navLinks.map((link) => (
                     <Link
@@ -64,33 +59,30 @@ export default function Header() {
                         <button onClick={() => setSearchActive(false)} className="text-gray-500 hover:text-black text-sm">✕</button>
                     </div>
                 ) : (
-                   
                     <Image
                         src="/assets/search-normal.svg"
                         alt="Search"
-                        width={24}  
-                        height={24} 
+                        width={24}
+                        height={24}
                         className="cursor-pointer"
                         onClick={() => setSearchActive(true)}
                     />
                 )}
                 <Link href={"/profile"}>
-                <Image
-                    src="/assets/user.svg"
-                    alt="Logo"
-                    width={24}
-                    height={24}
-                // className="w-[100px] h-auto"
-                />
+                    <Image
+                        src="/assets/user.svg"
+                        alt="Logo"
+                        width={24}
+                        height={24}
+                    />
                 </Link>
                 <Link href={"/cart"}>
-                <Image
-                    src="/assets/cart-btn.svg"
-                    alt="Logo"
-                    width={32}
-                    height={30}
-                // className="w-[100px] h-auto"
-                />
+                    <Image
+                        src="/assets/cart-btn.svg"
+                        alt="Logo"
+                        width={32}
+                        height={30}
+                    />
                 </Link>
             </div>
         </header>

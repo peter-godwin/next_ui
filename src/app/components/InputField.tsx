@@ -4,15 +4,15 @@ import React from 'react';
 import Image from 'next/image';
 
 interface InputFieldProps {
-  type?: 'text' | 'email' | 'password' | 'number'; // Can extend as needed
+  type?: 'text' | 'email' | 'password' | 'number'; 
   placeholder?: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
-  icon?: string; // Optional icon (left side)
+  icon?: string; 
   required?: boolean;
-  className?: string; // Optional additional classes for customization
-  errorMessage?: string; // Optional error message for validation
+  className?: string; 
+  errorMessage?: string; 
 }
 
 const InputField: React.FC<InputFieldProps> = ({

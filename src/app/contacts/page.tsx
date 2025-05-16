@@ -1,4 +1,3 @@
-// app/contact/page.tsx
 import React from 'react';
 import Footer from '../components/Footer';
 
@@ -6,19 +5,13 @@ export default function ContactPage() {
   return (
     <div>
       <main className="min-h-screen bg-white py-12 px-6 md:px-24">
-
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 font-[Poppins]">Get in Touch</h1>
           <p className="mt-4 text-gray-600 font-[Poppins]">
             We&apos;d love to hear from you! Fill out the form below or reach out via the contact details.
           </p>
-
         </div>
-
-        {/* Contact Form and Info */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Contact Form */}
           <form className="space-y-6  p-8">
             <div>
               <label className="block text-gray-700 font-medium mb-2">Name</label>
@@ -37,7 +30,6 @@ export default function ContactPage() {
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300"
               />
             </div>
-
             <div>
               <label className="block text-gray-700 font-medium mb-2">Message</label>
               <textarea
@@ -54,8 +46,6 @@ export default function ContactPage() {
               Send Message
             </button>
           </form>
-
-          {/* Contact Info */}
           <div className="space-y-6 text-gray-700 font-[Poppins]">
             <div>
               <h2 className="text-xl font-semibold mb-2">Contact Details</h2>
@@ -76,10 +66,7 @@ export default function ContactPage() {
               <p>Saturday & Sunday: Closed</p>
             </div>
           </div>
-
         </div>
-
-
       </main>
       <Footer />
     </div>

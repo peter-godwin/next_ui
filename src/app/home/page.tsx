@@ -8,8 +8,8 @@ import ProductCardGrid from "../components/ProductCard";
 import Recommendations from "../components/Recommendations";
 
 export default function Home() {
-  return <div>
-   
+  return (
+  <div>
     <Hero />
     <FeatureSection />
     <Category />
@@ -20,7 +20,5 @@ export default function Home() {
     <BottomFeatureSession />
     <Footer />
   </div>
-
-
-
+  );
 }

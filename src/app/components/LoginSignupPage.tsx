@@ -1,4 +1,3 @@
-// app/components/LoginSignupPage.tsx
 import { useState } from 'react';
 
 export default function LoginSignupPage() {

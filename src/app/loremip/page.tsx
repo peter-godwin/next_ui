@@ -1,9 +1,11 @@
 
 export default function LoremipPages() {
-  return <div>
+  return(
+   <div>
 
    
-  </div>;
+  </div>
+  );
 }
 
 
