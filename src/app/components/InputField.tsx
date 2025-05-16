@@ -1,33 +1,3 @@
-// 'use client';
-
-// import Image from 'next/image';
-
-// interface InputFieldProps {
-//   icon?: string; 
-//   placeholder?: string;
-//   className?: string;
-// }
-
-// export default function InputField({ icon, placeholder, className = '' }: InputFieldProps) {
-//   return (
-//     <div
-//       className={`flex items-center bg-white text-black rounded-full w-full ${className}`}
-//       style={{
-//         height: '48px',
-//         borderRadius: '62px',
-//         padding: '12px 24px',
-//         gap: '12px',
-//       }}
-//     >
-//       {icon && <Image src={icon} alt="Icon" width={20} height={20} />}
-//       <span className="text-sm text-gray-500">{placeholder}</span>
-//     </div>
-//   );
-// }
-
-
-
-
 'use client';
 
 import React from 'react';

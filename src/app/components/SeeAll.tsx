@@ -12,8 +12,8 @@ export default function SeeAll() {
                 src="/assets/arrow-right.svg"
                 alt="Arrow Right Icon"
                 className="w-[14px] md:w-[16px] h-[14px] md:h-[16px]"
-                width={16} // Width for image optimization
-                height={16} // Height for image optimization
+                width={16} 
+                height={16} 
             />
 
         </div>

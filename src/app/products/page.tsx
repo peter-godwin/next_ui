@@ -1,371 +1,315 @@
-// import Head from "../components/Head";
+// 'use client';
+
+// import { useState, useRef, useEffect } from "react";
+// import Link from "next/link";
+// import Image from "next/image";
+// import Hero from "../components/Hero";
+// import Footer from "../components/Footer";
+// import BottomFeatureSession from "../components/BottomFeatureSession";
 
 // export default function ProductsPage() {
 //   const categories = [
-//     'Beauty & Maternity',
-//     'Baby & Personal care',
-//     'Pain & Skin care',
-//     'First aid & Emergency',
-//     'Medicines',
-//     'Health & Wellness',
-//     'Vitamins & Supplements',
+//     "Babies & Maternity",
+//     "Body & Personal Care",
+//     "Face & Skin Care",
+//     "First Aid & Emergency",
+//     "Hair Care",
+//     "Health & Medicines",
+//     "Vitamins & Supplements",
+//     "Pain Relievers"
 //   ];
+
+//   const [currentCategory, setCurrentCategory] = useState(categories[0]);
+//   const categoryRefs = useRef<(HTMLSpanElement | null)[]>([]);
+//   const categoryContainerRef = useRef<HTMLDivElement | null>(null);
+//   const hrContainerRef = useRef<HTMLDivElement | null>(null);
+//   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
+
+//   useEffect(() => {
+//     const index = categories.indexOf(currentCategory);
+//     const selectedEl = categoryRefs.current[index];
+//     const containerEl = categoryContainerRef.current;
+//     const hrEl = hrContainerRef.current;
+
+//     if (selectedEl && containerEl && hrEl) {
+//       const selectedRect = selectedEl.getBoundingClientRect();
+//       const hrRect = hrEl.getBoundingClientRect();
+//       const leftOffset = selectedRect.left - hrRect.left;
+
+//       setUnderlineStyle({
+//         left: leftOffset,
+//         width: selectedRect.width
+//       });
+//     }
+//   }, [currentCategory, categories]);
 
 //   return (
 //     <div>
-//       <Head />
+//       <Hero />
 
-//       <div className="max-w-xs p-4">
-//         <h3 className="text-lg font-semibold mb-4 text-black">Categories</h3>
-//         <div className="space-y-3">
+//       <div className="categories-section mt-10 px-4 md:px-12 relative">
+//         <div
+//           ref={categoryContainerRef}
+//           className="flex justify-between items-center text-[16px] font-poppins font-normal leading-[24px] tracking-normal text-gray-800 mb-4"
+//         >
 //           {categories.map((category, index) => (
-//             <label key={index} className="flex items-center space-x-2">
-//               <input
-//                 type="checkbox"
-//                 className="custom-checkbox"
-//               />
-//               <span className="text-base text-black">{category}</span>
-//             </label>
+//             <span
+//               key={index}
+//               ref={(el) => {
+//                 categoryRefs.current[index] = el;
+//               }}
+//               className={`cursor-pointer whitespace-nowrap ${category === currentCategory ? 'font-bold' : ''
+//                 }`}
+//               onClick={() => setCurrentCategory(category)}
+//             >
+//               {category}
+//             </span>
 //           ))}
 //         </div>
 
-//         {/* Divider */}
-//         <hr className="mt-4 border-t border-gray-300" />
-//       </div>
-//     </div>
-//   );
-// }
-
-
-
-// 'use client';
-
-
-// 'use client';
-// import { useState } from "react";
-// import Head from "../components/Head";
-
-// export default function ProductsPage() {
-//   const [min, setMin] = useState(10); // Left thumb (min price)
-//   const [max, setMax] = useState(90); // Right thumb (max price)
-
-//   const categories = [
-//     'Beauty & Maternity',
-//     'Baby & Personal care',
-//     'Pain & Skin care',
-//     'First aid & Emergency',
-//     'Medicines',
-//     'Health & Wellness',
-//     'Vitamins & Supplements',
-//   ];
-
-//   // Calculate the percentage of the slider for both min and max values
-//   const minPercentage = (min / 100) * 100;  // Percentage for the min thumb
-//   const maxPercentage = (max / 100) * 100;  // Percentage for the max thumb
-
-//   // Create a gradient based on the slider values
-//   const trackStyle = {
-//     background: `linear-gradient(to right, #E5E7EB ${minPercentage}% , #111111 ${minPercentage}%, #111111 ${maxPercentage}%, #E5E7EB ${maxPercentage}%)`,
-//   };
-
-//   return (
-//     <div>
-//       <Head />
-
-//       <div className="max-w-xs p-4">
-//         <h3 className="text-lg font-semibold mb-4 text-black">Categories</h3>
-//         <div className="space-y-3">
-//           {categories.map((category, index) => (
-//             <label key={index} className="flex items-center space-x-2">
-//               <input type="checkbox" className="custom-checkbox" />
-//               <span className="text-base text-black">{category}</span>
-//             </label>
-//           ))}
-//         </div>
-
-//         <hr className="mt-4 mb-4 border-t border-gray-300" />
-
-//         {/* Price Range Section */}
-//         <div className="mb-2">
-//           <h3 className="text-lg font-semibold text-black mb-2">Price Range</h3>
-//           <div className="dual-slider-container">
+//         <div className="relative">
+//           <div ref={hrContainerRef} className="relative h-[2px] bg-gray-300 my-4">
 //             <div
-//               className="dual-slider-track"
-//               style={trackStyle} // Apply the dynamic gradient background
+//               className="absolute bg-gray-800 h-[2px] transition-all duration-300"
+//               style={{
+//                 left: `${underlineStyle.left}px`,
+//                 width: `${underlineStyle.width}px`
+//               }}
 //             />
-//             {/* Left Thumb: min */}
-//             <input
-//               type="range"
-//               min="0"
-//               max="100"
-//               value={min}
-//               onChange={(e) => setMin(Math.min(Number(e.target.value), max - 1))}
-//               className="dual-slider"
-//             />
-//             {/* Right Thumb: max */}
-//             <input
-//               type="range"
-//               min="0"
-//               max="100"
-//               value={max}
-//               onChange={(e) => setMax(Math.max(Number(e.target.value), min + 1))}
-//               className="dual-slider"
-//             />
-//           </div>
-//           <div className="text-sm text-black mt-1">
-//             N{min} - N{max}
 //           </div>
 //         </div>
 //       </div>
+
+//       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 md:px-12 py-10">
+//         {Array.from({ length: 20 }).map((_, index) => (
+//           <Link
+//             key={index}
+//             href={`/product_details/${index + 1}`}
+//             className="block"
+//           >
+//             <div className="relative bg-white border border-gray-50 rounded-lg p-4 cursor-pointer hover:shadow-md transition-shadow duration-300">
+//               <Image src="/assets/Img.png" alt={`Product ${index + 1}`} width={309} height={250} className="rounded-md" />
+
+//               <div className="absolute bottom-32 right-4 hover:scale-110 transition-transform duration-300 cursor-pointer hover:bg-black rounded-full">
+//                 <Image src="/assets/btn.svg" alt="Add Icon" width={40} height={40} />
+//               </div>
+
+//               <div className="absolute top-0 right-0">
+//                 <Image src="/assets/Wishlist button.svg" alt="Wishlist" width={50} height={50} />
+//               </div>
+
+//               <div className="mt-4 flex justify-between">
+//                 <div>
+//                   <h3 className="font-semibold text-gray-800">Feroglobin Liquid Plus...</h3>
+//                   <p className="text-sm text-gray-500">280ML</p>
+//                 </div>
+//                 <div className="text-right">
+//                   <p className="text-sm font-semibold text-gray-900">₦21,400.99</p>
+//                   <p className="text-xs text-gray-400 line-through">₦22,000.99</p>
+//                 </div>
+//               </div>
+
+//               <div className="mt-3 flex items-center text-sm text-yellow-500 gap-1">
+//                 <Image src="/assets/star.svg" alt="Star" width={20} height={20} />
+//                 <span className="text-gray-800 font-medium">4.9</span>
+//                 <span className="text-gray-400">(98)</span>
+//               </div>
+//             </div>
+//           </Link>
+//         ))}
+//       </div>
+
+//       <BottomFeatureSession />
+//       <Footer />
 //     </div>
 //   );
 // }
-
-
 
 
 
 'use client';
-import { useState } from "react";
-import Head from "../components/Head";
+
+import { useState, useRef, useEffect, useMemo } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Hero from "../components/Hero";
+import Footer from "../components/Footer";
+import BottomFeatureSession from "../components/BottomFeatureSession";
 
 export default function ProductsPage() {
-  const [min, setMin] = useState(50); // Left thumb (min price)
-  const [max, setMax] = useState(10000); // Right thumb (max price)
+  // Use useMemo to avoid re-creating the categories array on every render
+  const categories = useMemo(() => [
+    "Babies & Maternity",
+    "Body & Personal Care",
+    "Face & Skin Care",
+    "First Aid & Emergency",
+    "Hair Care",
+    "Health & Medicines",
+    "Vitamins & Supplements",
+    "Pain Relievers"
+  ], []);
 
-  const categories = [
-    'Beauty & Maternity',
-    'Baby & Personal care',
-    'Pain & Skin care',
-    'First aid & Emergency',
-    'Medicines',
-    'Health & Wellness',
-    'Vitamins & Supplements',
-  ];
+  const [currentCategory, setCurrentCategory] = useState(categories[0]);
+  const categoryRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const categoryContainerRef = useRef<HTMLDivElement | null>(null);
+  const hrContainerRef = useRef<HTMLDivElement | null>(null);
+  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
 
-  // Calculate the percentage of the slider for both min and max values
-  const minPercentage = (min / 100) * 100;  // Percentage for the min thumb
-  const maxPercentage = (max / 100) * 100;  // Percentage for the max thumb
+  useEffect(() => {
+    const index = categories.indexOf(currentCategory);
+    const selectedEl = categoryRefs.current[index];
+    const containerEl = categoryContainerRef.current;
+    const hrEl = hrContainerRef.current;
 
-  // Create a gradient based on the slider values
-  const trackStyle = {
-    background: `linear-gradient(to right, #E5E7EB ${minPercentage}% , #111111 ${minPercentage}%, #111111 ${maxPercentage}%, #E5E7EB ${maxPercentage}%)`,
-  };
+    if (selectedEl && containerEl && hrEl) {
+      const selectedRect = selectedEl.getBoundingClientRect();
+      const hrRect = hrEl.getBoundingClientRect();
+      const leftOffset = selectedRect.left - hrRect.left;
+
+      setUnderlineStyle({
+        left: leftOffset,
+        width: selectedRect.width
+      });
+    }
+  }, [currentCategory, categories]);
 
   return (
     <div>
-      <Head />
+      <Hero />
 
-<div className="max-w-xs p-4 pl-20">
-        <h3 className="text-lg font-semibold mb-4 text-black">Categories</h3>
-        <div className="space-y-3">
+      <div className="categories-section mt-10 px-4 md:px-12 relative">
+        <div
+          ref={categoryContainerRef}
+          className="flex justify-between items-center text-[16px] font-poppins font-normal leading-[24px] tracking-normal text-gray-800 mb-4"
+        >
           {categories.map((category, index) => (
-            <label key={index} className="flex items-center space-x-2">
-              <input type="checkbox" className="custom-checkbox" />
-              <span className="text-base text-black">{category}</span>
-            </label>
+            <span
+              key={index}
+              ref={(el) => {
+                categoryRefs.current[index] = el;
+              }}
+              className={`cursor-pointer whitespace-nowrap ${category === currentCategory ? 'font-bold' : ''
+                }`}
+              onClick={() => setCurrentCategory(category)}
+            >
+              {category}
+            </span>
           ))}
         </div>
 
-        <hr className="mt-4 mb-4 border-t border-gray-300" />
-
-        {/* Price Range Section */}
-        <div className="mb-2">
-          <h3 className="text-lg font-semibold text-black mb-2">Price Range</h3>
-          <div className="dual-slider-container">
+        <div className="relative">
+          <div ref={hrContainerRef} className="relative h-[2px] bg-gray-300 my-4">
             <div
-              className="dual-slider-track"
-              style={trackStyle} // Apply the dynamic gradient background
-            />
-            {/* Left Thumb: min */}
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={min}
-              onChange={(e) => setMin(Math.min(Number(e.target.value), max - 1))}
-              className="dual-slider"
-            />
-            {/* Right Thumb: max */}
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={max}
-              onChange={(e) => setMax(Math.max(Number(e.target.value), min + 1))}
-              className="dual-slider"
-            />
-          </div>
-
-          {/* Min and Max Price Display (in a row) */}
-          <div className="flex justify-between mt-2 text-sm text-black">
-            <div className="flex flex-col items-left">
-              <span
-                className="text-gray-600"
-                style={{
-                  fontFamily: 'Poppins',
-                  fontWeight: 400,
-                  fontSize: '16px',
-                  lineHeight: '24px',
-                  letterSpacing: '0%',
-                  verticalAlign: 'middle',
-                }}
-              >
-                Min Price
-              </span>
-              <div
-                style={{
-                  width: '130.5px',
-                  height: '40px',
-                  borderRadius: '9999px',
-                  paddingTop: '8px',
-                  paddingRight: '16px',
-                  paddingBottom: '8px',
-                  paddingLeft: '16px',
-                  borderWidth: '1px',
-                  borderColor: '#E5E7EB',
-                  borderStyle: 'solid',
-                  textAlign: 'center',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'Poppins',
-                    fontWeight: 400,
-                    fontSize: '16px',
-                    lineHeight: '24px',
-                    letterSpacing: '0%',
-                    verticalAlign: 'middle',
-                  }}
-                >
-                  ₦
-                </span>
-                <span
-                  style={{
-                    fontFamily: 'Poppins',
-                    fontWeight: 400,
-                    fontSize: '16px',
-                    lineHeight: '24px',
-                    letterSpacing: '0%',
-                    verticalAlign: 'middle',
-                  }}
-                >
-                  {min}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-left">
-              <span
-                className="text-gray-600"
-                style={{
-                  fontFamily: 'Poppins',
-                  fontWeight: 400,
-                  fontSize: '16px',
-                  lineHeight: '24px',
-                  letterSpacing: '0%',
-                  verticalAlign: 'middle',
-                }}
-              >
-                Max Price
-              </span>
-              <div
-                style={{
-                  width: '130.5px',
-                  height: '40px',
-                  borderRadius: '9999px',
-                  paddingTop: '8px',
-                  paddingRight: '16px',
-                  paddingBottom: '8px',
-                  paddingLeft: '16px',
-                  borderWidth: '1px',
-                  borderColor: '#E5E7EB',
-                  borderStyle: 'solid',
-                  textAlign: 'center',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'Poppins',
-                    fontWeight: 400,
-                    fontSize: '16px',
-                    lineHeight: '24px',
-                    letterSpacing: '0%',
-                    verticalAlign: 'middle',
-                  }}
-                >
-                  ₦
-                </span>
-                <span
-                  style={{
-                    fontFamily: 'Poppins',
-                    fontWeight: 400,
-                    fontSize: '16px',
-                    lineHeight: '24px',
-                    letterSpacing: '0%',
-                    verticalAlign: 'middle',
-                  }}
-                >
-                  {max}
-                </span>
-
-              </div>
-
-            </div>
-          </div>
-          <hr className="mt-4 mb-4 border-t border-gray-300" />
-
-          {/* Sort Order Section */}
-          <div className="mt-4">
-            <h3
-              className="text-lg font-semibold text-black mb-2"
+              className="absolute bg-gray-800 h-[2px] transition-all duration-300"
               style={{
-                fontFamily: 'Poppins',
-                fontWeight: 600,
-                fontSize: '18px',
-                lineHeight: '24px',
+                left: `${underlineStyle.left}px`,
+                width: `${underlineStyle.width}px`
               }}
-            >
-              Sort Order
-            </h3>
-            <div className="space-y-2">
-              {['Popularity', 'Best Rating', 'Newest', 'Price: Low - High', 'Price: High - Low'].map((option, index) => (
-                <label key={index} className="flex items-center space-x-2 text-black">
-                  <input
-                    type="radio"
-                    name="sortOrder"
-                    value={option}
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      borderRadius: '9999px',
-                      border: '1px solid #000',
-                      accentColor: '#000', // ensures selected color is black
-                    }}
-                  />
-                  <span
-                    style={{
-                      fontFamily: 'Poppins',
-                      fontWeight: 400,
-                      fontSize: '16px',
-                      lineHeight: '24px',
-                    }}
-                  >
-                    {option}
-                  </span>
-                </label>
-              ))}
-            </div>
+            />
           </div>
-
         </div>
       </div>
+
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 md:px-12 py-10">
+        {Array.from({ length: 20 }).map((_, index) => (
+          <Link
+            key={index}
+            href={`/product_details/${index + 1}`}
+            className="block"
+          >
+            <div className="relative bg-white border border-gray-50 rounded-lg p-4 cursor-pointer hover:shadow-md transition-shadow duration-300">
+              <Image src="/assets/Img.png" alt={`Product ${index + 1}`} width={309} height={250} className="rounded-md" />
+
+              <div className="absolute bottom-32 right-4 hover:scale-110 transition-transform duration-300 cursor-pointer hover:bg-black rounded-full">
+                <Image src="/assets/btn.svg" alt="Add Icon" width={40} height={40} />
+              </div>
+
+              <div className="absolute top-0 right-0">
+                <Image src="/assets/Wishlist button.svg" alt="Wishlist" width={50} height={50} />
+              </div>
+
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="font-semibold text-gray-800">Feroglobin Liquid Plus...</h3>
+                  <p className="text-sm text-gray-500">280ML</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-sm font-semibold text-gray-900">₦21,400.99</p>
+                  <p className="text-xs text-gray-400 line-through">₦22,000.99</p>
+                </div>
+              </div>
+
+              <div className="mt-3 flex items-center text-sm text-yellow-500 gap-1">
+                <Image src="/assets/star.svg" alt="Star" width={20} height={20} />
+                <span className="text-gray-800 font-medium">4.9</span>
+                <span className="text-gray-400">(98)</span>
+              </div>
+            </div>
+          </Link>
+          
+        ))}
+      </div> */}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 md:px-12 py-10">
+        {Array.from({ length: 20 }).map((_, index) => (
+          <Link
+            key={index}
+            href={`/product_details/${index + 1}`}
+            className="block"
+          >
+            <div className="relative bg-white border border-gray-50 rounded-lg p-4 cursor-pointer hover:shadow-md transition-shadow duration-300">
+              {/* Product Image */}
+              <Image
+                src="/assets/Img.png"
+                alt={`Product ${index + 1}`}
+                width={309}
+                height={250}
+                className="rounded-md"
+              />
+
+              {/* Floating Add Icon */}
+              <div className="absolute bottom-40 right-4 hover:scale-110 transition-transform duration-300 cursor-pointer hover:bg-black rounded-full">
+                <Image src="/assets/btn.svg" alt="Add Icon" width={40} height={40} />
+              </div>
+
+              {/* Wishlist Icon */}
+              <div className="absolute top-0 right-0">
+                <Image src="/assets/Wishlist button.svg" alt="Wishlist" width={50} height={50} />
+              </div>
+
+              {/* Product Info */}
+              <div className="mt-4">
+                {/* Title - One line */}
+                <h3 className="font-semibold text-gray-800 text-ellipsis whitespace-nowrap overflow-hidden">
+                  Feroglobin Liquid Plus...
+                </h3>
+
+                {/* Volume */}
+                <p className="text-sm text-gray-500 mt-1">280ML</p>
+
+                {/* Price */}
+                <p className="text-sm font-semibold text-gray-900 mt-2">₦21,400.99</p>
+
+                {/* Ratings */}
+                <div className="flex items-center gap-1 mt-2">
+                  <Image src="/assets/star.svg" alt="Star" width={20} height={20} />
+                  <span className="text-gray-800 font-medium text-sm">4.9</span>
+                  <span className="text-gray-400 text-sm">(98)</span>
+                </div>
+
+                {/* Discount Row */}
+                <div className="flex items-center gap-2 mt-2">
+                  <Image src="/assets/tag.svg" alt="Discount" width={20} height={20} />
+                  <p className="text-gray-400 text-sm line-through">₦22,000.99</p>
+                  <p className="text-gray-400 text-sm">(25% off)</p>
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+      <BottomFeatureSession />
+      <Footer />
     </div>
   );
 }
